@@ -1,5 +1,6 @@
-%h2 Log in
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .field 
+    = image_tag 'Rectangle.png'
   .field
     = f.label :email
     %br/
