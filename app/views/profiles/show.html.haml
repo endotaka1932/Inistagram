@@ -1,0 +1,23 @@
+.container.profilePage 
+  .profilePage_user 
+    .prfilePage_user_name
+      = current_user.username
+    .profilePage_user_image
+      = image_tag 'Ellipse.png'
+    .profile_user_actioinBtn
+    .profile_user_actionInfo
+      .user_posts
+        .posts_counts
+          %span 44
+          %p Posts
+      .user_followers
+        .followers_counts
+          %span 124
+          %p Followers
+      .user_Following
+        .followings_counts
+          %span 321
+          %p Following
+    .profilePage_user_basicInfo
+      .profilePage_user_nickname 
+      .profilePage_user_introduction
