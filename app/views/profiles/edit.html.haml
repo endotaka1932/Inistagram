@@ -1,0 +1,14 @@
+%ul
+-#   - article.errors.full_messages.each do |message|
+-#     %li message
+= form_with(model: @profile, url: profile_path, method: 'PUT', local: true) do |f|
+  %div
+    = f.label :nickname, 'ニックネーム'
+  %div
+    = f.text_field :nickname
+  %div
+    = f.label :introduction, '自己紹介'
+  %div
+    = f.text_area :introduction
+  %div
+    = f.submit '更新'
