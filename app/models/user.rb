@@ -31,4 +31,19 @@ class User < ApplicationRecord
     profile || build_profile
   end
 
+  def display_name
+    if profile.present?
+      profile.nickname
+    else
+      self.username
+    end
+  end
+
+  def display_introduction
+    if profile.present?
+      profile.introduction
+    else
+      ' '
+    end
+  end
 end

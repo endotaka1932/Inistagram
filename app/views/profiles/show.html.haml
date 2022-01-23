@@ -20,6 +20,6 @@
           %p Following
     .profilePage_user_basicInfo
       .profilePage_user_nickname 
-        -# = current_user.profile.nickname
+        = current_user.display_name
       .profilePage_user_introduction
-        -# = current_user.profile.introduction
+        = current_user.display_introduction
