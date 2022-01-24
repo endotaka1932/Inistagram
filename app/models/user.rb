@@ -46,4 +46,13 @@ class User < ApplicationRecord
       ' '
     end
   end
+
+  def avatar_image
+    if profile&.avatar&.attached?
+      profile.avatar
+    else
+      'default.png'
+    end
+  end
+
 end
