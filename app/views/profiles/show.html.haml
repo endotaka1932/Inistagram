@@ -3,7 +3,7 @@
     .prfilePage_user_name
       = current_user.username
     .profilePage_user_image
-      = image_tag 'Ellipse.png'
+      = image_tag current_user.avatar_image
     .profile_user_actioinBtn
     .profile_user_actionInfo
       .user_posts
@@ -20,4 +20,9 @@
           %p Following
     .profilePage_user_basicInfo
       .profilePage_user_nickname 
+        = current_user.display_name
       .profilePage_user_introduction
+        = current_user.display_introduction
+    .profilePage_user_actionBtn
+      = link_to '編集', edit_profile_path
+    
