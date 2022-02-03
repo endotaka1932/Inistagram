@@ -10,4 +10,16 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
 
   %body
+    %header.header
+      .header_right_btn
+        = link_to new_article_path do
+          .float_btn_post
+            = image_tag 'camera.png'
+        = link_to root_path do
+          .float_btn_home
+            = image_tag 'home.jpeg', width:30
+      .header_left_btn
+        - if !current_page?(root_path)
+          = link_to :back do
+            = image_tag 'back.svg'
     = yield

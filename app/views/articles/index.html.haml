@@ -1,7 +1,4 @@
 .container 
-  = link_to new_article_path do
-    .float_btn
-      = image_tag 'camera.png'
   - @articles.each do |article|
     = link_to profile_path do
       .card
