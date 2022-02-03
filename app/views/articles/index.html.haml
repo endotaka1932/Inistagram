@@ -11,14 +11,19 @@
           - else
             = image_tag 'default.png'
           %div
-            %p= current_user.profile.nickname
-            %p= '2022/01/25'
+            %p= article.user.display_name
+            %p= article.display_created_at
         .card_image
           - if article.images.attached?
             - article.images.each do |image|
               = image_tag image
           - else
-            = image_tag 'default.png'
+            = image_tag 'eyecatch1.png'
         .card_content
           %p= article.content
         .card_heart
+        .article.detail_actions.dropdown
+          = image_tag 'actions.svg', class: 'dropbtn'
+          .dropdown-content-mini
+            = link_to '編集する', edit_article_path(id: article.id)
+            = link_to '削除する', article_path(id: article.id), data: { method: 'delete', confirm: '本当に削除しますか'}

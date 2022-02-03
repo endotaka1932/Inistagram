@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
-        @article = currrent_user.articles.find(params[:id])
+        @article = current_user.articles.find(params[:id])
         if @article.destroy!
             redirect_to profile_path
         end
@@ -45,4 +45,5 @@ class ArticlesController < ApplicationController
         def article_params
             params.require(:article).permit(:content, images: [])
         end
+
 end
