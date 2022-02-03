@@ -18,6 +18,8 @@
         = link_to root_path do
           .float_btn_home
             = image_tag 'home.jpeg', width:30
+        = link_to profile_path do
+          = image_tag 'profile.png', width:30
       .header_left_btn
         - if !current_page?(root_path)
           = link_to :back do
