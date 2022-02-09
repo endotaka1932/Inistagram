@@ -24,4 +24,8 @@
         - if !current_page?(root_path)
           = link_to :back do
             = image_tag 'back.svg'
+    - if flash.present?
+      .flash 
+        - flash.each do |key, value|
+          %div{:class => key}= value
     = yield
