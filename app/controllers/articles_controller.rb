@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
     end 
 
     def show
+        @articles = current_user.articles.all
     end
 
     def new
