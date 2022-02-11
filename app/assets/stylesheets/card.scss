@@ -1,0 +1,31 @@
+
+.card {
+   cursor: pointer;
+   background-color: white;
+   position: relative;
+
+   &_detail {
+     height: 100px;
+     overflow: hidden;
+       img {
+           position: absolute;
+           width:40px;
+           height: 40px;
+           top: 20px;
+           left: 60px;
+           
+       }
+   }
+
+   &_image {
+       height: 180px;
+       display: flex;
+       overflow: hidden;
+
+       img {
+           width: 70%;
+           top: 50px;
+           left: 50px;
+       }
+   }
+}
