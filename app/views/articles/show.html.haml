@@ -24,3 +24,8 @@
             .dropdown-content-mini
               = link_to '編集する', edit_article_path(id: article.id)
               = link_to '削除する', article_path(id: article.id), data: { method: 'delete', confirm: '本当に削除しますか'}
+      
+      %h2 コメント一覧
+      - article.comments.each do |comment|
+        .article_comment
+          %p= comment.content
