@@ -19,6 +19,12 @@
         .card_content
           %p= article.content
         .card_heart
+          - if user_signed_in?
+            = image_tag 'unlike.png'
+        .card_comment
+          = link_to new_article_comment_path(article) do
+            = image_tag 'comment.png'          
+        .card_actions
         - if user_signed_in? && current_user.has_written(article)
           .article.detail_actions.dropdown
             = image_tag 'actions.svg', class: 'dropbtn'
