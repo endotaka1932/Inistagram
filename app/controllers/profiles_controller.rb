@@ -3,6 +3,8 @@ class ProfilesController < ApplicationController
 
     def show
         @profile = current_user.profile
+        @article = current_user.articles.first
+
     end
 
     def edit

@@ -8,8 +8,9 @@
     .profile_user_actionInfo
       .user_posts
         .posts_counts
-          %span= current_user.articles_count
-          %p Posts
+          = link_to article_path(@article) do
+            %span= current_user.articles_count
+            %p Posts
       .user_followers
         .followers_counts
           %span 124
