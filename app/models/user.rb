@@ -41,6 +41,10 @@ class User < ApplicationRecord
     likes.count
   end
 
+  def articles_count
+    articles.count
+  end
+
   def prepare_profile
     profile || build_profile
   end
