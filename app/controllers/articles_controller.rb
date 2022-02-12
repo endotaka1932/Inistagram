@@ -6,7 +6,9 @@ class ArticlesController < ApplicationController
     end 
 
     def show
-        @articles = current_user.articles.all
+        article = Article.find(params[:id])
+        @user = article.user
+        @articles = @user.articles.all
     end
 
     def new

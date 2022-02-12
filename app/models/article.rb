@@ -15,6 +15,8 @@
 class Article < ApplicationRecord
     belongs_to :user
 
+    validates :images, presence: true
+
     has_many :comments, dependent: :destroy
 
     has_many_attached :images
