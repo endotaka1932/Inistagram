@@ -20,7 +20,12 @@
           %p= article.content
         .card_heart
           - if user_signed_in?
-            = image_tag 'unlike.png'
+            - if current_user.has_liked?(article)
+              = link_to article_like_path(article), data: { method: 'delete'} do
+                = image_tag 'like.png'
+            - else
+              = link_to article_like_path(article), data: { method: 'post' } do
+                = image_tag 'unlike.png'
         .card_comment
           = link_to new_article_comment_path(article) do
             = image_tag 'comment.png'          
