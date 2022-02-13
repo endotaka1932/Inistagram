@@ -1,7 +1,7 @@
 .container 
   - @articles.each do |article|
     = link_to profile_path do
-      .card#article{ data: {article_id: article.id}}
+      .card
         .card_detail
           - if article.user.profile&.avatar
             = image_tag article.user.profile.avatar
@@ -20,10 +20,14 @@
           %p= article.content
         .card_heart
           - if user_signed_in?
-            .article_heart.hidden.active_heart
-              = image_tag 'like.png'
-            .article_heart.hidden.inactive_heart
-              = image_tag 'unlike.png'
+            - if current_user.has_liked(article)
+              .article_heart
+                = link_to article_like_path(article), data: { method: 'delete'} do
+                  = image_tag 'like.png'
+            - else
+              .article_heart
+                = link_to article_like_path(article), data: { method: 'post' } do
+                  = image_tag 'unlike.png'
         .card_comment
           = link_to new_article_comment_path(article) do
             = image_tag 'comment.png'          

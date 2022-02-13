@@ -27,7 +27,7 @@ const handleHeartDisplay = (hasLiked) => {
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
         const dataset = $('#article').data()
         const articleId = dataset.articleId
         axios.get(`/articles/${articleId}/like`)
