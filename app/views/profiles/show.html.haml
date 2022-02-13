@@ -8,8 +8,9 @@
     .profile_user_actionInfo
       .user_posts
         .posts_counts
-          %span 44
-          %p Posts
+          = link_to article_path(@article) do
+            %span= current_user.articles_count
+            %p Posts
       .user_followers
         .followers_counts
           %span 124
@@ -18,6 +19,11 @@
         .followings_counts
           %span 321
           %p Following
+      .user_likes
+        .likes_counts
+          = link_to favorites_path do
+            %span= current_user.likes_count
+            %p Likes
     .profilePage_user_basicInfo
       .profilePage_user_nickname 
         = current_user.display_name

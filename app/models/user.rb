@@ -27,15 +27,23 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :favorites_articles, through: :likes, source: :article
 
   def has_written(article)
     articles.exists?(id: article.id)
   end
 
-  def has_liked?(article)
+  def has_liked(article)
     likes.exists?(article_id: article.id)
   end
 
+  def likes_count
+    likes.count
+  end
+
+  def articles_count
+    articles.count
+  end
 
   def prepare_profile
     profile || build_profile
