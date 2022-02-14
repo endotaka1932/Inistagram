@@ -12,6 +12,7 @@ require("channels")
 import $ from 'jquery'
 import axios from 'axios'
 
+
 const handleHeartDisplay = (hasLiked) => {
     if (hasLiked) {
         $('.active_heart').removeClass('hidden')
@@ -35,4 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const hasLiked = response.data.hasLiked
                 handleHeartDisplay(hasLiked)
         })
+
+        // $('.inactive_heart').on('click', () => {
+        //     axios.post(`/articles/${articleId}/like`)
+        //         .then((response) => {
+        //             $('.inactive_heart').removeClass('hidden')
+        //         })
+        // })
 })
