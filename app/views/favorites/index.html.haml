@@ -1,4 +1,1 @@
-.container
-  - @articles.each do |article|
-    = link_to article_path(article) do
-      = render 'commons/articles', article: article
+= render 'commons/articles', articles: @articles

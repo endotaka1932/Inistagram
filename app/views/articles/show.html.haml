@@ -1,5 +1,5 @@
-.container  
-  .card#article{ data: {article_id: @article.id}}
+.container#article{ data: {article_id: @article.id}}
+  .card
     .card_detail
       - if @article.user.profile&.avatar
         = image_tag @article.user.profile.avatar
@@ -36,3 +36,5 @@
     - @article.comments.each do |comment|
       .article_comment
         %p= comment.content
+
+= javascript_pack_tag 'article'
