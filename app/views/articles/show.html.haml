@@ -33,8 +33,6 @@
             = link_to '削除する', article_path(id: @article.id), data: { method: 'delete', confirm: '本当に削除しますか'}
 
     %h2 コメント一覧
-    - @article.comments.each do |comment|
-      .article_comment
-        %p= comment.content
+    .comments_container
 
 = javascript_pack_tag 'article'

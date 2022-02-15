@@ -48,5 +48,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.alert('error')
                     console.log(e)
                 })
-        })        
+        })
+        
+        axios.get(`/articles/${articleId}/comments`)
+            .then((res) => {
+                const comments = res.data
+                comments.forEach((comment) => {
+                    $('.comments_container').append(
+                        `<div class="article_comment"><p>${comment.content}</p></div>`
+                    )
+                })
+            })
 })
