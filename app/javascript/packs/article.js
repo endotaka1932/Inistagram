@@ -59,4 +59,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     )
                 })
             })
+
+        $('.show_comment_form').on('click', () => {
+            $('.comment_text_area').removeClass('hidden')
+            $('.show_comment_form').addClass('hidden')
+        })
+
+        $('.add_comment_button').on('click', () => {
+            const content = $('#comment_content').val()
+            if (!content) {
+                window.alert('コメントを入力してください')
+            } else {
+                axios.post(`/articles/${articleId}/comments`, {
+                    comment: {content: content}
+                })
+                    .then((res) => {
+                        const comment = res.data
+                        $('.comments_container').append(
+                            `<div class="article_comment"><p>${comment.content}</p></div>`
+                        )                        
+                        $('#comment_content').val('')
+                })            
+            }
+        })
 })
