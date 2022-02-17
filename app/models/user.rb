@@ -29,6 +29,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :favorites_articles, through: :likes, source: :article
 
+  has_many :following_relationships, foreign_key: 'follower_id', class_name: 'Relationsihp', dependent: :destroy
+  has_many :followings, through: :following_relationships, source: :following
+
   def has_written(article)
     articles.exists?(id: article.id)
   end
@@ -43,6 +46,10 @@ class User < ApplicationRecord
 
   def articles_count
     articles.count
+  end
+
+  def follow!(user)
+    following_relationships.create(following_id: user.id)
   end
 
   def prepare_profile
