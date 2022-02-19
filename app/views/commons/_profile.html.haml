@@ -3,7 +3,10 @@
     .prfilePage_user_name
       = user.username
     .profilePage_follow_button
-      = link_to 'Follow', account_follows_path(user), data: { method: 'post' }
+      - if current_user.has_followed?(user)
+        %p フォロー済み
+      - else
+        = link_to 'Follow', account_follows_path(user), data: { method: 'post' }
     .profilePage_user_image
       = image_tag user.avatar_image
     .profile_user_actioinBtn
