@@ -2,7 +2,7 @@
   - articles.each do |article|
     .card
       .card_detail
-        = link_to profile_path do
+        = link_to account_path(article.user) do
           - if article.user.profile&.avatar
             = image_tag article.user.profile.avatar
           - else
