@@ -2,6 +2,8 @@
   .profilePage_user 
     .prfilePage_user_name
       = user.username
+    .profilePage_follow_button
+      = link_to 'Follow', account_follows_path(user), data: { method: 'post' }
     .profilePage_user_image
       = image_tag user.avatar_image
     .profile_user_actioinBtn
@@ -11,14 +13,16 @@
           = link_to article_path(@article) do
             %span= user.articles_count
             %p Posts
-      .user_followers
-        .followers_counts
-          %span 124
-          %p Followers
-      .user_Following
-        .followings_counts
-          %span 321
-          %p Following
+      .user_follow-follower_button
+        - if user == current_user
+          .user_followers
+            .followers_counts
+              %span 124
+              %p Followers
+          .user_Following
+            .followings_counts
+              %span 321
+              %p Following
       .user_likes
         .likes_counts
           = link_to favorites_path do
