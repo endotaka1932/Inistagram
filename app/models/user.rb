@@ -57,7 +57,8 @@ class User < ApplicationRecord
   end
 
   def has_followed?(user)
-    following_relationships.exists?(following_id: user.id)
+    user_id = get_user_id(user)
+    following_relationships.exists?(following_id: user_id)
   end
 
   def unfollow!(user)

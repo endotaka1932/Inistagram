@@ -1,12 +1,13 @@
-.container.profilePage 
-  .profilePage_user 
+.container.profilePage#profile{ data: {user_id: user.id} }
+  .profilePage_user
     .prfilePage_user_name
       = user.username
     .profilePage_follow_button
-      - if current_user.has_followed?(user)
-        = link_to 'UnFollow', account_unfollows_path(user), data: { method: 'post' }
-      - else
-        = link_to 'Follow', account_follows_path(user), data: { method: 'post' }
+      - unless current_user == user
+        .user_value.unfollow.hidden
+          UnFollow
+        .user_value.follow.hidden
+          Follow
     .profilePage_user_image
       = image_tag user.avatar_image
     .profile_user_actioinBtn
@@ -17,15 +18,14 @@
             %span= user.articles_count
             %p Posts
       .user_follow-follower_button
-        - if user == current_user
-          .user_followers
-            .followers_counts
-              %span 124
-              %p Followers
-          .user_Following
-            .followings_counts
-              %span 321
-              %p Following
+        .user_followers
+          .followers_counts
+            %span 124
+            %p Followers
+        .user_Following
+          .followings_counts
+            %span 321
+            %p Following
       .user_likes
         .likes_counts
           = link_to favorites_path do
@@ -48,4 +48,6 @@
           = image_tag article.images.first
         - else
           = image_tag 'eyecatch1.png'    
-    
+  
+
+= javascript_pack_tag 'profile'
