@@ -1,0 +1,55 @@
+.container.profilePage#profile{ data: {user_id: user.id} }
+  .profilePage_user
+    .prfilePage_user_name
+      = user.username
+    .profilePage_follow_button
+      - unless current_user == user
+        .user_value.unfollow.hidden
+          UnFollow
+        .user_value.follow.hidden
+          Follow
+    .profilePage_user_image
+      = image_tag user.avatar_image
+    .profile_user_actioinBtn
+    .profile_user_actionInfo
+      .user_posts
+        .posts_counts
+          = link_to article_path(@article) do
+            %span= user.articles_count
+            %p Posts
+      .user_follow-follower_button
+        .user_followers
+          .followers_counts
+            = link_to account_followers_path(user) do
+              %span= user.followers.count
+              %p Followers
+        .user_Following
+          .followings_counts
+            = link_to account_followings_path(user) do
+              %span= user.followings.count
+              %p Following
+      .user_likes
+        .likes_counts
+          = link_to favorites_path do
+            %span= user.likes_count
+            %p Likes
+    .profilePage_user_basicInfo
+      .profilePage_user_nickname 
+        = user.display_name
+      .profilePage_user_introduction
+        = user.display_introduction
+    .profilePage_user_actionBtn
+      = link_to '編集', edit_profile_path
+
+
+  
+  - user.articles.each do |article|
+    = link_to article_path(article) do
+      .card_image
+        - if article.images.attached?
+          = image_tag article.images.first
+        - else
+          = image_tag 'eyecatch1.png'    
+  
+
+= javascript_pack_tag 'profile'
