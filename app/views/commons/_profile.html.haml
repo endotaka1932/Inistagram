@@ -20,12 +20,14 @@
       .user_follow-follower_button
         .user_followers
           .followers_counts
-            %span 124
-            %p Followers
+            = link_to account_follows_path(user) do
+              %span 124
+              %p Followers
         .user_Following
           .followings_counts
-            %span 321
-            %p Following
+            = link_to account_unfollows_path(user) do
+              %span 321
+              %p Following
       .user_likes
         .likes_counts
           = link_to favorites_path do

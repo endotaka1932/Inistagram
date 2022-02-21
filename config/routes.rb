@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :accounts, only: [:show] do
-    resources :follows, only: [:show, :create]
-    resources :unfollows, only: [:create]
+    resources :follows, only: [:index, :show, :create]
+    resources :unfollows, only: [:index, :create]
   end 
 
   resource :profile, only: [:index, :show, :edit, :update]
