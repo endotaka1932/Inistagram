@@ -9,7 +9,7 @@
             = image_tag 'default.png'
         %div
           %p= article.user.display_name
-          %p= article.display_created_at
+          %p= time_ago_in_words(article.created_at) + '前'
       .card_image
         = link_to article_path(article) do
           - if article.images.attached?
