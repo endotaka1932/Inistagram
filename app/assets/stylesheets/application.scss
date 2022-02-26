@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'card';
 @import 'devise';
+@import 'profile';
 
 html {
     word-spacing: 1px;
@@ -24,10 +25,35 @@ color: $text-base-color;
     }
 }
 
+.header {
+    position: relative;
+    z-index: 100;
+    height: 55px;
+}
+
+.header_right_btn {
+    position: absolute;
+    display: flex;
+    top: 55px;
+    right: 2%;
+    img {
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
+    }
+}
+
+.header_left_btn {
+    position: absolute;
+    display: flex;
+    top: 55px;
+    left: 1.5%;
+}    
+
 .container {
-    padding: 16px 16px;
     width: 100%;
     position: relative;
+    z-index: 1;
   }
 
   .float_btn {
@@ -40,6 +66,4 @@ color: $text-base-color;
     display: none;
 }
 
-.clear::after {
-    clear: both;
-}
+    

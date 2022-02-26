@@ -1,17 +1,19 @@
 .container.profilePage#profile{ data: {user_id: user.id} }
   .profilePage_user
-    .prfilePage_user_name
-      = user.username
-    .profilePage_follow_button
-      - unless current_user == user
-        .user_value.unfollow.hidden
-          UnFollow
-        .user_value.follow.hidden
-          Follow
+    .profilePage_user_name
+      %p= user.username
     .profilePage_user_image
       = image_tag user.avatar_image
-    .profile_user_actioinBtn
-    .profile_user_actionInfo
+    - if current_user == user
+      .profile_logout
+        = link_to 'LOG OUT', destroy_user_session_path, data: { method: 'delete' }, class: 'profile_btn'
+    - else     
+      .profilePage_follow_button.profile_btn
+        .user_value.unfollow.hidden
+          %p UnFollow
+        .user_value.follow.hidden
+          %p Follow
+    .profile_user_actionBtn
       .user_posts
         .posts_counts
           - if current_user.articles.exists?
@@ -42,18 +44,19 @@
         = user.display_name
       .profilePage_user_introduction
         = user.display_introduction
-    .profilePage_user_actionBtn
-      = link_to '編集', edit_profile_path
+    - if current_user == user
+      .profilePage_user_editbtn
+        = link_to '編集', edit_profile_path
 
 
-  
-  - user.articles.each do |article|
-    = link_to article_path(article) do
-      .card_image
-        - if article.images.attached?
-          = image_tag article.images.first
-        - else
-          = image_tag 'eyecatch1.png'    
+  .card_many
+    - user.articles.each do |article|
+      = link_to article_path(article) do
+        .card_image
+          - if article.images.attached?
+            = image_tag article.images.first
+          - else
+            = image_tag 'eyecatch1.png'    
   
 
 = javascript_pack_tag 'profile'
