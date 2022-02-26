@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'card';
+@import 'devise';
 
 html {
     word-spacing: 1px;
@@ -26,6 +27,7 @@ color: $text-base-color;
 .container {
     padding: 16px 16px;
     width: 100%;
+    position: relative;
   }
 
   .float_btn {

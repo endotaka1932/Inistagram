@@ -14,7 +14,11 @@
     .profile_user_actionInfo
       .user_posts
         .posts_counts
-          = link_to article_path(@article) do
+          - if current_user.articles.exists?
+            = link_to article_path(@article) do
+              %span= user.articles_count
+              %p Posts
+          - else
             %span= user.articles_count
             %p Posts
       .user_follow-follower_button

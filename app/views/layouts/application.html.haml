@@ -20,6 +20,7 @@
             = image_tag 'home.jpeg', width:30
         = link_to profile_path do
           = image_tag 'profile.png', width:30
+        = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
       .header_left_btn
         - if !current_page?(root_path)
           = link_to :back do
