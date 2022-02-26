@@ -39,3 +39,7 @@ color: $text-base-color;
 .hidden {
     display: none;
 }
+
+.clear::after {
+    clear: both;
+}
