@@ -33,9 +33,9 @@
       .card_content
         %p= article.content               
       .card_actions
-      - if user_signed_in? && current_user.has_written(article)
-        .article.detail_actions.dropdown
-          = image_tag 'actions.svg', class: 'dropbtn'
-          .dropdown-content-mini
-            = link_to '編集する', edit_article_path(id: article.id)
-            = link_to '削除する', article_path(id: article.id), data: { method: 'delete', confirm: '本当に削除しますか'}
+        - if user_signed_in? && current_user.has_written(article)
+          .card_actions_menu.dropdown
+            = image_tag 'actions.svg', class: 'dropbtn'
+            .dropdown-content-mini
+              = link_to '編集する', edit_article_path(id: article.id)
+              = link_to '削除する', article_path(id: article.id), data: { method: 'delete', confirm: '本当に削除しますか'}

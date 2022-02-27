@@ -1,6 +1,7 @@
 .card {
     cursor: pointer;
     background-color: white;
+    position: relative;
 
     &_user_info {
         display: flex;
@@ -77,8 +78,43 @@
             line-height: 14px;
 
             color: #333333;
-
         }
-        
+    }
+
+    &_actions {
+        position: absolute;
+        top: 0;
+        right: 10%;
+
+        img {
+            width: 25px;
+            height: 10px;
+        }
+    }
+
+    .dropdown {
+        height: 2em;
+        position: relative;
+
+    }
+
+    .dropdown-content-mini {
+        position: absolute;
+        display: none;
+        width: 70px;
+
+        a {
+            display: block;
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        :hover {
+            opacity: 0.6;
+        }
+    }
+
+    .dropdown:hover .dropdown-content-mini{
+        display: block;
     }
 }
