@@ -1,22 +1,22 @@
 .container#article{ data: {article_id: @article.id}}
   .card
-    .card_detail
-      = link_to account_path(@article.user) do
-        - if @article.user.profile&.avatar
-          = image_tag @article.user.profile.avatar
-        - else
-          = image_tag 'default.png'
-        %div
-          %p= @article.user.display_name
-          %p= @article.display_created_at
+    .card_user_info
+      .card_avatar
+        = link_to account_path(@article.user) do
+          - if @article.user.profile&.avatar
+            = image_tag @article.user.profile.avatar
+          - else
+            = image_tag 'default.png'
+      .card_detail
+        %p= @article.user.display_name
+        %span= time_ago_in_words(@article.created_at) + '前'
     .card_image
       - if @article.images.attached?
         - @article.images.each do |image|
           = image_tag image
       - else
         = image_tag 'eyecatch1.png'
-    .card_content
-      %p= @article.content
+    .card_reaction
       .card_heart
         - if user_signed_in?
           .article_heart.hidden.active_heart
@@ -25,16 +25,19 @@
             = image_tag 'unlike.png'
       .card_comment
         = link_to new_article_comment_path(@article) do
-          = image_tag 'comment.png'    
+          = image_tag 'comment.png'   
+    .card_content
+      %p= @article.content
+    .card_actions 
       - if user_signed_in? && current_user.has_written(@article)
-        .article.detail_actions.dropdown
+        .card_actions_menu.dropdown
           = image_tag 'actions.svg', class: 'dropbtn'
           .dropdown-content-mini
             = link_to '編集する', edit_article_path(id: @article.id)
             = link_to '削除する', article_path(id: @article.id), data: { method: 'delete', confirm: '本当に削除しますか'}
 
     .article
-      %h2 コメント一覧
+      %h3 Comment
       .comments_container
 
       .container
