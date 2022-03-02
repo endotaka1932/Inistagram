@@ -14,7 +14,12 @@
 #  index_profiles_on_user_id  (user_id)
 #
 class ProfileSerializer < ActiveModel::Serializer
-  attributes :id, :nickname
+  attributes :id, :avatar_url
 
   belongs_to :user
+
+  def avatar_url
+    rails_blob_path(object.avatar_image) if object.avatar_image.attached?
+  end
+
 end

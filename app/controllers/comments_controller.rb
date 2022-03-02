@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     def index
         article = Article.find(params[:article_id])
         comments = article.comments
+        # render json: comments, include: { user: [:profile] }
         render json: comments
     end
 
@@ -14,16 +15,16 @@ class CommentsController < ApplicationController
     end
 
     def create
-        article = current_user.Article.find(params[:article_id])
+        article = Article.find(params[:article_id])
         @comment = article.comments.build(comment_params)
         @comment.save!
 
-        render json: @comment
+        render json: @comment, include: { user: [:profile] }
     end
 
 
     private
         def comment_params
-            params.require(:comment).permit(:content)
+            params.require(:comment).permit(:content).merge(user_id: current_user.id)
         end
 end
