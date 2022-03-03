@@ -1,4 +1,4 @@
-.article {
+.article-comment {
     h3 {
         font-size: 16px;
         line-height: 19px;
@@ -35,3 +35,30 @@
         margin:0 0 20px 40px ;        
     }
 }
+
+.comment-form {
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 20px;
+    width: 95%;
+    background-color: #fff;
+}
+.show_comment_form {
+    bottom: 10%;
+    height: 42px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+
+    img {
+        margin: 12px 0 13px 21px ;
+    }
+}
+.comment_text_area {
+    textarea {
+        height: 8em;
+        bottom: 10%;
+        width: 95%;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);        
+    }
+}
+
+

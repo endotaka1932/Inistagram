@@ -36,17 +36,17 @@
             = link_to '編集する', edit_article_path(id: @article.id)
             = link_to '削除する', article_path(id: @article.id), data: { method: 'delete', confirm: '本当に削除しますか'}
 
-    .article
+    .article-comment
       %h3 Comment
       .comments_container
 
-      .container
-        .btn_secondry.show_comment_form
-          コメントを追加
-        .comment_text_area.hidden
-          = text_area_tag :comment_content, '', class: 'sm'
-          .btn_secondry.add_comment_button
-            コメントを追加
+  .comment-form
+    .btn_secondry.show_comment_form
+      = image_tag 'comment.png', class: 'comment-img'
+    .comment_text_area.hidden
+      = text_area_tag :comment_content, '', class: 'sm'
+      .btn_secondry.add_comment_button
+        コメントを追加
 
     
 
