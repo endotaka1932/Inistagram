@@ -9,3 +9,29 @@
 .comment_userInfo {
     margin-top: 40px;
 }
+
+.article_comment_image {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    margin-top: 10px;
+    float: left;       
+}
+
+.article_comment_username {
+    p {
+        font-size: 16px;
+        line-height: 24px;
+        color: #414040;
+        margin:0 0 0 40px ;
+    }
+}
+
+.article_comment {
+    p {
+        font-size: 14px;
+        line-height: 28px;
+        color: #9B9B9B;
+        margin:0 0 20px 40px ;        
+    }
+}
