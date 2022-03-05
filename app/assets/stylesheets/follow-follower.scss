@@ -4,13 +4,17 @@
     border-bottom: 1px solid #EEEEEE;
     &_name {
         margin-left: 20px;
+        margin-top: 25px;
         p {
             font-family: Poppins Medium;
             font-size: 14px;
-            line-height: 100px;
             color: #333333;
-    
-            margin: 0;        
+            margin: 0 0 0 5px;  
+        }
+        span {
+            margin-left: 7px;
+            opacity: 0.5;
+            font-size: 12px;
         }
     }
 
