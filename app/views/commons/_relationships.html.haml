@@ -4,4 +4,4 @@
       = image_tag user.avatar_image  
     .relation_user_info_name
       %p= user.display_name
-      %p= user.last_sign_in_at
+      %span= 'Last seen  ' + I18n.l(user.last_sign_in_at)
