@@ -55,7 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const comments = res.data
                 comments.forEach((comment) => {
                     $('.comments_container').append(
-                        `<div class="article_comment"><p>${comment.content}</p></div>`
+                        `<img class="article_comment_image", src="${comment.user.profile['avatar_url']}"></img>
+                        <div class="article_comment_username"><p>${comment.user['username']}</p></div>
+                        <div class="article_comment"><p>${comment.content}</p></div>`
                     )
                 })
             })
@@ -76,7 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then((res) => {
                         const comment = res.data
                         $('.comments_container').append(
-                            `<div class="article_comment"><p>${comment.content}</p></div>`
+                            `<img class="article_comment_image", src="${comment.user.profile['avatar_url']}"></img>
+                            <div class="article_comment_username"><p>${comment.user['username']}</p></div>
+                            <div class="article_comment"><p>${comment.content}</p></div>`
                         )                        
                         $('#comment_content').val('')
                 })            

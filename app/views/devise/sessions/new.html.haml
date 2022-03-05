@@ -1,18 +1,18 @@
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field 
-    = image_tag 'Rectangle.png'
+    = image_tag 'Rectangle.png', class: 'topimage'
   .field
-    = f.label :email
+    = f.label :email, class: 'text'
     %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    = f.email_field :email, autofocus: true, autocomplete: "email", class: 'loginform'
   .field
-    = f.label :password
+    = f.label :password, class: 'text'
     %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
+    = f.password_field :password, autocomplete: "current-password", class: 'loginform'
+  -# - if devise_mapping.rememberable?
+  -#   .field
+  -#     = f.check_box :remember_me
+  -#     = f.label :remember_me
   .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+    = f.submit "LOG IN"
+    = render "devise/shared/links"

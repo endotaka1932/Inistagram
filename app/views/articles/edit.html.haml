@@ -1,14 +1,1 @@
-%ul
-  - @article.errors.full_messages.each do |message|
-    %li= message
-= form_with(model: @article, local: true) do |f|
-  %div
-    = f.label :images, '画像'
-  %div
-    = f.file_field :images, multiple: true
-  %div
-    = f.label :content, '内容'
-  %div
-    = f.text_area :content
-  %div
-    = f.submit '投稿'
+= render 'commons/form', article: @article

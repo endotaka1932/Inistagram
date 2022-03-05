@@ -1,0 +1,17 @@
+%p.title status
+.article_post_image
+  = image_tag current_user.avatar_image
+.article_post_username
+  %p= current_user.username
+%ul
+  - article.errors.full_messages.each do |message|
+    %li= message
+= form_with(model: article, local: true) do |f|
+  %div
+    = f.text_area :content, :placeholder => "What's on your mind ", class: 'content_form'
+  .file
+    = f.label :images, '＋ Album', class: 'image_input_btn'
+  %div
+    = f.file_field :images, multiple: true, class: 'file_form'
+  .post
+    = f.submit 'Post', class: 'post_btn'

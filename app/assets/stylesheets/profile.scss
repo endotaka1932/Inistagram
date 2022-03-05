@@ -1,0 +1,74 @@
+.profilePage_user_image {
+    img {
+        display: block;
+        width: 76.88px;
+        height: 76.88px;
+        border-radius: 100%;
+        margin: 0 auto;
+        margin-top: 32px;
+    }
+
+}
+
+.profilePage_user_name {
+    width: 100%;
+    p {
+        font-family: Poppins Medium;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+
+        display: block;
+        color: #333A42;    
+    }
+}
+
+.profile_btn {
+    display: block;
+    width: 80px;
+    font-family: Poppins Medium;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+
+    color: #BDBDBD;
+}
+
+.profile_user_actionBtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 55px;
+    text-align: center;
+}
+
+.user_posts {
+    margin-right: 30px;
+}
+
+.user_follow-follower_button {
+    display: flex;
+
+    a {
+        display: block;
+        margin-right: 30px;
+    }
+
+}
+
+.profilePage_user_basicInfo {
+    margin-left: 20px;
+    font-size: 15px;   
+}
+
+.profilePage_user_editbtn {
+    text-align: right;
+    margin-right: 20px;
+
+    a {
+        font-size: 12px;
+        opacity: 0.7;
+    }
+}
+
