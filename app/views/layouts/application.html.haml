@@ -21,6 +21,8 @@
               = image_tag 'home.jpeg', width:30
           = link_to profile_path do
             = image_tag 'profile.png', width:30
+            .header_btn_timeline
+              = link_to 'TL', timeline_path
         .header_left_btn
           - if !current_page?(root_path)
             = link_to :back do
