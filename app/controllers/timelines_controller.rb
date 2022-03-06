@@ -3,6 +3,6 @@ class TimelinesController < ApplicationController
 
     def show
         user_ids = current_user.followings.pluck(:id)
-        @articles = Article.where(user_id: user_ids)
+        @articles = Article.where("user_id IN (?) and created_at >= ?", user_ids, Time.zone.now - 1.day).order(likes_count: :DESC)
     end
 end
