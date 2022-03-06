@@ -26,6 +26,10 @@ class Comment < ApplicationRecord
 
     after_create :comment_include_username
 
+    def oneday
+        Time.zone.now - self.created_at
+    end
+
     private
     def comment_include_username
         comment_user = User.find(user_id)
