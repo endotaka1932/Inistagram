@@ -23,4 +23,17 @@ class Comment < ApplicationRecord
     belongs_to :user
 
     validates :content, presence: true
+
+    after_create :comment_include_username
+
+    private
+    def comment_include_username
+        comment_user = User.find(user_id)
+        User.all.each do |user|
+            word = "@#{user.username}"
+            if content.include?(word)
+                NotifyCommentMailer.notify_comment(user, comment_user).deliver_later
+            end
+        end
+    end
 end
