@@ -28,10 +28,11 @@ class Comment < ApplicationRecord
 
     private
     def comment_include_username
+        comment_user = User.find(user_id)
         User.all.each do |user|
             word = "@#{user.username}"
             if content.include?(word)
-                NotifyCommentMailer.notify_comment(user).deliver_later
+                NotifyCommentMailer.notify_comment(user, comment_user).deliver_later
             end
         end
     end
